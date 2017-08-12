@@ -1,0 +1,28 @@
+{
+  "name": "toy-robot-simulator",
+  "version": "1.0.0",
+  "description": "Simple robot simulator",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/babel-cli/bin/babel-node.js src/main/simulator.js",
+    "test": "./node_modules/.bin/mocha --compilers js:babel-core/register src/test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leo-RASPAUD/toy-robot-simulator.git"
+  },
+  "author": "Leo RASPAUD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Leo-RASPAUD/toy-robot-simulator/issues"
+  },
+  "homepage": "https://github.com/Leo-RASPAUD/toy-robot-simulator#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.24.1",
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
+  }
+}
