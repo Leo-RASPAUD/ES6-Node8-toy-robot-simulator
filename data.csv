@@ -1,0 +1,10 @@
+place(1,2,3)
+left
+right
+report
+move
+place(0,3,N)
+move
+move
+left
+move

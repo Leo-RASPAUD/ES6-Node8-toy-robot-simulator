@@ -3,7 +3,7 @@ import chai from 'chai';
 
 const expect = chai.expect;
 
-describe('test', () => {
+describe('Test simulator class', () => {
 
     let simulator;
 
@@ -42,7 +42,7 @@ describe('test', () => {
         expect(report.positionY).to.equal(3);
         expect(report.direction).to.equal('N');
     });
-    
+
     it('One call to left should place the toy to {x: 2, y: 2, direction : \'W\'}', () => {
         simulator.left();
         const report = simulator.report();
@@ -60,7 +60,7 @@ describe('test', () => {
     });
 
     it('4 consecutives call to right or left should reset to the initial positition {x: 2, y: 2, direction: \'N\'}', () => {
-        for(let i = 0 ; i < 4 ; i++){
+        for (let i = 0; i < 4; i++) {
             simulator.right();
         }
         let report = simulator.report();
@@ -68,7 +68,7 @@ describe('test', () => {
         expect(report.positionY).to.equal(2);
         expect(report.direction).to.equal('N');
 
-        for(let i = 0 ; i < 4 ; i++){
+        for (let i = 0; i < 4; i++) {
             simulator.right();
         }
         report = simulator.report();
