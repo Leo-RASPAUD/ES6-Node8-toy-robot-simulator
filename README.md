@@ -25,19 +25,19 @@ The file **MUST** be called "data.csv".
 - Line breaks : CR-LF
 
 ## Commands
-- MOVE
+- **MOVE**
 > Moves the robot forward
-- LEFT
+- **LEFT**
 > Rotates the robot -90°
-- RIGHT
+- **RIGHT**
 > Rotates the robot +90°
-- PLACE(X,Y,DIRECTION)
+- **PLACE(X,Y,DIRECTION)**
 > Places the robot in X,Y facing the entered direction (directions : N, S, E, W)<br/>
 ``` 
 Exemple : PLACE(1,2,N)
 Places the robot in the following position {x : 1, y : 2, direction : N }
 ``` 
-- REPORT
+- **REPORT**
 > Prints a report with the X,Y and direction
 
 ## Usage
