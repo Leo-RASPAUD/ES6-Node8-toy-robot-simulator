@@ -33,8 +33,10 @@ The file **MUST** be called "data.csv".
 > Rotates the robot +90°
 - PLACE(X,Y,DIRECTION)
 > Places the robot in X,Y facing the entered direction (directions : N, S, E, W)<br/>
-- Exemple : PLACE(1,2,N)
-- Places the robot in the following position {x : 1, y : 2, direction : N }
+``` 
+Exemple : PLACE(1,2,N)
+Places the robot in the following position {x : 1, y : 2, direction : N }
+``` 
 - REPORT
 > Prints a report with the X,Y and direction
 
