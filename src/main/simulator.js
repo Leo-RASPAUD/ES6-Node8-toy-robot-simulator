@@ -8,21 +8,22 @@ const movementPreventedMessage = '/!\\ Robot would fall off the table, movement 
 
 class Simulator {
 
-    constructor() {
+    constructor(table) {
+        this.table = table;
     }
 
     move() {
         console.log('--- Execute MOVE command --');
         switch (this._direction) {
             case NORTH:
-                if(this._positionY < 4) {
+                if(this._positionY < this.table.maxPositionY) {
                     this._positionY++;
                 } else {
                     console.log(`${movementPreventedMessage}: New Y position would be: ${this._positionY+1}`)
                 }
                 break;
             case EAST:
-                if(this._positionX < 4) {
+                if(this._positionX < this.table.maxPositionX) {
                     this._positionX++;
                 } else {
                     console.log(`${movementPreventedMessage}: New X position would be: ${this._positionX+1}`)

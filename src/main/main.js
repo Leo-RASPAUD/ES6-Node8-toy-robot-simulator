@@ -1,5 +1,6 @@
 import utils from './utils';
 import Simulator from './simulator';
+import Table from './table';
 
 const invalidPlaceFormatLog = 'Invalid place format, remove it from the commands';
 
@@ -8,7 +9,8 @@ console.log('Robot toy simulator');
 console.log('---------------------------------\n');
 
 const main = async () => {
-    const simulator = new Simulator();
+    const table = new Table(5,5);
+    const simulator = new Simulator(table);
     try {
         const file = await utils.readCommandFile('./data.csv');
 
@@ -24,7 +26,7 @@ const main = async () => {
         for (let i = 0; i < commands.length; i++) {
             utils.executeCommand(commands[i], simulator);
         }
-        const report = simulator.report();
+        const report = utils.executeCommand('REPORT', simulator);
         console.log('\n---------------------------------');
         console.log(`Final position : positionX : ${report.positionX}, positionY : ${report.positionY}, direction : ${report.direction}`);
         console.log('---------------------------------');

@@ -1,4 +1,6 @@
 import utils from '../main/utils';
+import Simulator from '../main/simulator';
+import Table from '../main/table';
 import chai from 'chai';
 
 const expect = chai.expect;
@@ -22,8 +24,12 @@ const initTestCommands = () => [
 describe('Test utils functions', () => {
 
     let testCommands;
+    let simulator;
 
     beforeEach(() => {
+        const table = new Table(5,5);
+        simulator = new Simulator(table);
+        simulator.place(2, 2, 'N');
         testCommands = initTestCommands();
     });
 
@@ -32,7 +38,47 @@ describe('Test utils functions', () => {
         expect(utils.checkPlaceArguments).to.exist;
         expect(utils.findPlaceIndex).to.exist;
         expect(utils.removeInvalidCommands).to.exist;
+        expect(utils.executeCommand).to.exist;
         done();
+    });
+
+    it('executeCommand(MOVE) should place the toy to {x:2, y:3, direction : N}', () => {
+        utils.executeCommand('MOVE', simulator);
+        const report = simulator.report();
+        expect(report.positionX).to.equal(2);
+        expect(report.positionY).to.equal(3);
+        expect(report.direction).to.equal('N');
+    });
+
+    it('executeCommand(LEFT) should place the toy to {x:2, y:3, direction : W}', () => {
+        utils.executeCommand('LEFT', simulator);
+        const report = simulator.report();
+        expect(report.positionX).to.equal(2);
+        expect(report.positionY).to.equal(2);
+        expect(report.direction).to.equal('W');
+    });
+
+    it('executeCommand(RIGHT) should place the toy to {x:2, y:3, direction : E}', () => {
+        utils.executeCommand('RIGHT', simulator);
+        const report = simulator.report();
+        expect(report.positionX).to.equal(2);
+        expect(report.positionY).to.equal(2);
+        expect(report.direction).to.equal('E');
+    });
+
+    it('executeCommand(REPORT) should return the report', () => {
+        const report = utils.executeCommand('REPORT', simulator);
+        expect(report.positionX).to.equal(2);
+        expect(report.positionY).to.equal(2);
+        expect(report.direction).to.equal('N');
+    });
+
+    it('executeCommand(place(2,2,N)) should place the toy', () => {
+        utils.executeCommand('place(2,2,N)', simulator);
+        const report = simulator.report();
+        expect(report.positionX).to.equal(2);
+        expect(report.positionY).to.equal(2);
+        expect(report.direction).to.equal('N');
     });
 
     it('removeInvalidCommands should remove the invalid commands', () => {

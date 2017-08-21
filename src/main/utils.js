@@ -42,7 +42,6 @@ const getPlaceArguments = (placeCommand) => {
     }
 }
 
-
 const executeCommand = (command, simulator) => {
     switch (command) {
         case 'MOVE':
@@ -55,15 +54,13 @@ const executeCommand = (command, simulator) => {
             simulator.right();
             break;
         case 'REPORT':
-            simulator.report();
-            break;
+            return simulator.report();
         default:
             const placeArguments = getPlaceArguments(command);
             simulator.place(placeArguments.posX, placeArguments.posY, placeArguments.direction);
             break;
     }
 }
-
 
 export default {
     checkPlaceArguments,
